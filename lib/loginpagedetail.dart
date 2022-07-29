@@ -81,39 +81,16 @@ class _loginpagedetailState extends State<loginpagedetail> {
                     ));
               } else {
                 return ListView.builder(
-                    itemCount: 1,
-                    itemBuilder: (context, index) {
-                      return Column(
-                        children: [
-                          DataTable(
-                              dividerThickness: 2,
-                              columns: [
-                                DataColumn(
-                                  label: Text("Id"),
-                                ),
-                                DataColumn(label: Text("Email")),
-                                DataColumn(label: Text("Password")),
-                                DataColumn(label: Text("image")),
-                              ],
-                              rows:
-                                  List.generate(snapshot.data.length, (index) {
-                                var emp = snapshot.data![index];
-                                return DataRow(cells: [
-                                  DataCell(
-                                    Text(emp.id.toString()),
-                                  ),
-                                  DataCell(
-                                    Text(emp.email.toString()),
-                                  ),
-                                  DataCell(
-                                    Text(emp.password.toString()),
-                                  ),
-                                  DataCell(
-                                      // Image.network(emp.image)
-                                      SfPdfViewer.network(emp.image)),
-                                ]);
-                              }))
-                        ],
+                    itemCount: snapshot.data?.length,
+                    itemBuilder: (context, i) {
+                      return ListTile(
+                        leading: CircleAvatar(
+                          maxRadius: 25,
+                          minRadius: 25,
+                        ),
+                        title: Text(snapshot.data[i].id),
+                        subtitle: Text(snapshot.data[i].email),
+                        trailing: Text(snapshot.data[i].password),
                       );
                     });
               }

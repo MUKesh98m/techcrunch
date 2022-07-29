@@ -15,22 +15,19 @@ class data_con {
 
 class insertdata {
   final String id;
-
   final String email;
   final String password;
-  final String image;
 
   insertdata({
     required this.id,
     required this.email,
     required this.password,
-    required this.image,
   });
   factory insertdata.fromJson(Map<String, dynamic> json) {
     return insertdata(
-        id: json['id'],
-        email: json['email'],
-        password: json['password'],
-        image: json['image_name']);
+      id: json['id'],
+      email: json['email'],
+      password: json['password'],
+    );
   }
 }

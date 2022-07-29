@@ -89,16 +89,19 @@ class _forgot_passwordState extends State<forgot_password> {
       try {
         String url =
             "https://mj09store.000webhostapp.com/Mailfunction/mailfunction.php";
-        var response =
-            await http.post(Uri.parse(url), body: {"email": email.text});
+        var response = await http.post(Uri.parse(url), body: {
+          "email": email.text,
+          "body":
+              "https://mj09store.000webhostapp.com/register_or_not/update_form.php?email=" +
+                  email.text
+        });
 
         // var res = jsonDecode(response.body);
         print(response.toString());
         if (response.statusCode == 200) {
           print(response.statusCode);
-          // print(json.decode(response.body));
+          print(json.decode(response.body));
           print(response.body);
-
         } else {
           print(response.statusCode);
         }

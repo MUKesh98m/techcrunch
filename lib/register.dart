@@ -91,15 +91,11 @@ class _registerState extends State<register> {
               ),
               SizedBox(
                 width: 100,
-                child:
-                      ElevatedButton(
-                          onPressed: () {
-                            insertdata();
-                          },
-                          child: Text("Login")),
-
-
-
+                child: ElevatedButton(
+                    onPressed: () {
+                      insertdata();
+                    },
+                    child: Text("Login")),
               ),
             ],
           ),

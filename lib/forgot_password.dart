@@ -63,7 +63,7 @@ class _forgot_passwordState extends State<forgot_password> {
                           backgroundColor: MaterialStatePropertyAll(Colors.red),
                         ),
                         onPressed: () {
-                          sendEmail(email: email.text);
+                          sendemail();
                         },
                         child: Container(
                             alignment: Alignment.center,
@@ -84,49 +84,32 @@ class _forgot_passwordState extends State<forgot_password> {
     );
   }
 
-  Future sendEmail({required String email}) async {
-    var url = Uri.parse('https://api.emailjs.com/api/v1.0/email/send');
+  sendemail() async {
+    if (email != "") {
+      try {
+        String url =
+            "https://mj09store.000webhostapp.com/Mailfunction/mailfunction.php";
+        var response =
+            await http.post(Uri.parse(url), body: {"email": email.text});
 
-    final service_id = 'service_ulhew24';
-    final template_id = 'template_i6f6myn';
-    final user_id = '2n_DsMigCqX6W9H7e';
-    final response = await http.post(
-      url,
-      headers: {'Content-Type': 'application/json'},
-      body: json.encode({
-        'service_id': service_id,
-        'template_id': template_id,
-        'user_id': user_id,
-        'template_params': {'user_email': email}
-      }),
-    );
-    print(response.body);
+        // var res = jsonDecode(response.body);
+        print(response.toString());
+        if (response.statusCode == 200) {
+          print(response.statusCode);
+          // print(json.decode(response.body));
+          print(response.body);
+
+        } else {
+          print(response.statusCode);
+        }
+      } catch (e) {
+        var kk = e.toString();
+        print(kk);
+
+        // }
+      }
+    } else {
+      print("by");
+    }
   }
 }
-
-// Future MailFeedback({message, rating, date}) async {
-//   // required  String email;
-//   final service_id = 'service_ulhew24';
-//   final template_id = 'template_i6f6myn';
-//   final user_id = '2n_DsMigCqX6W9H7e';
-//   var url = Uri.parse('https://api.emailjs.com/api/v1.0/email/send');
-//   try {
-//     var response = await http.post(url,
-//         headers: {
-//           'origin': '<http://localhost>',
-//           'Content-Type': 'application/json'
-//         },
-//         body: json.encode({
-//           'service_id': service_id,
-//           'template_id': template_id,
-//           'user_id': user_id,
-//           'template_params': {
-//             'e'
-//           }
-//         }));
-//     print('[FEED BACK RESPONSE]');
-//     print(response.body);
-//   } catch (error) {
-//     print('[SEND FEEDBACK MAIL ERROR]');
-//   }
-// }

@@ -32,7 +32,7 @@ getadata1() async {
         'https://mj09store.000webhostapp.com/register_or_not/Photo_upload/uploads/' +
             api['image_name'];
 
-    print(data);
+    // print(data);
     insertdata Data_con = insertdata(
         id: api['id'],
         email: api['email'],

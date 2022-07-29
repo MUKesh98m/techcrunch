@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:techcrunch/loginpagedetail.dart';
 import 'package:techcrunch/pdf.dart';
-
-
+import 'package:techcrunch/login1.dart';
 import 'forgot_password.dart';
 
 void main() {
@@ -34,6 +33,6 @@ class _MyAppState extends State<MyApp> {
             // appBar: AppBar(
             //   title: Text("Flutter And Php"),
             // ),
-            body: pdf()));
+            body: login1()));
   }
 }

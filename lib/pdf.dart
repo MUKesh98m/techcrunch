@@ -2,6 +2,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:pdf_render/pdf_render_widgets.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:syncfusion_flutter_pdf/pdf.dart';
 
@@ -105,23 +106,13 @@ class _pdfState extends State<pdf> {
                       itemCount: 10,
                     ));
               } else {
-                return ListView.builder(
-                    itemCount: 1,
-                    itemBuilder: (context, index) {
-                      return Column(
-                        children: [
-                          SingleChildScrollView(
-                            child: Container(
-                              height: 1500,
-                              width: 300,
-                              // color: Colors.red,
-                              child: SfPdfViewer.network(
-                                  snapshot.data[index].image),
-                            ),
-                          )
-                        ],
-                      );
-                    });
+                return Container(
+                  height: 350,
+                  width: 500,
+                  color: Colors.blueGrey,
+                  child: SfPdfViewer.network(
+                      "https://www.tutorialspoint.com/dart_programming/dart_programming_tutorial.pdf"),
+                );
               }
             },
           ),

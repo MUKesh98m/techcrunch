@@ -11,26 +11,6 @@ import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
 import 'api/api_page.dart';
 
-// class pdf extends StatefulWidget {
-//   const pdf({Key? key}) : super(key: key);
-//
-//   @override
-//   State<pdf> createState() => _pdfState();
-// }
-//
-// class _pdfState extends State<pdf> {
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         actions: [],
-//       ),
-//         body: SfPdfViewer.network(
-//             'https://www.tutorialspoint.com/flutter/flutter_tutorial.pdf'));
-//   }
-// }
-
 class pdf extends StatefulWidget {
   const pdf({Key? key}) : super(key: key);
 
@@ -50,7 +30,7 @@ class _pdfState extends State<pdf> {
       body: Container(
         child: Card(
           child: FutureBuilder(
-            future: getadata1(),
+            future: getapdf(),
             builder: (context, AsyncSnapshot snapshot) {
               if (snapshot.data == null) {
                 return Shimmer.fromColors(
@@ -110,8 +90,6 @@ class _pdfState extends State<pdf> {
                   height: 350,
                   width: 500,
                   color: Colors.blueGrey,
-                  child: SfPdfViewer.network(
-                      "https://www.tutorialspoint.com/dart_programming/dart_programming_tutorial.pdf"),
                 );
               }
             },

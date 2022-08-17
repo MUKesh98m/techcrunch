@@ -4,6 +4,7 @@ import 'package:techcrunch/pdf.dart';
 import 'package:techcrunch/login1.dart';
 import 'forgot_password.dart';
 import 'package:techcrunch/usercredential1.dart';
+import 'package:techcrunch/homepage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -34,6 +35,6 @@ class _MyAppState extends State<MyApp> {
             // appBar: AppBar(
             //   title: Text("Flutter And Php"),
             // ),
-            body: loginpagedetail()));
+            body: homepage()));
   }
 }

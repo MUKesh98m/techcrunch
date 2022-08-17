@@ -15,19 +15,23 @@ class data_con {
 
 class insertdata {
   final String id;
+
   final String email;
   final String password;
 
-  insertdata({
-    required this.id,
-    required this.email,
-    required this.password,
-  });
+  insertdata({required this.id, required this.email, required this.password});
   factory insertdata.fromJson(Map<String, dynamic> json) {
     return insertdata(
-      id: json['id'],
-      email: json['email'],
-      password: json['password'],
-    );
+        id: json['id'], email: json['email'], password: json['password']);
+  }
+}
+
+class insertpdf {
+  final String id;
+  final String pdf;
+
+  insertpdf({required this.id, required this.pdf});
+  factory insertpdf.fromJson(Map<String, dynamic> json) {
+    return insertpdf(id: json['id'], pdf: json['pdf']);
   }
 }

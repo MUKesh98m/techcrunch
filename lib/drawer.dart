@@ -1,9 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:techcrunch/register.dart';
-
+import 'package:techcrunch/login1.dart';
 import 'loginpagedetail.dart';
-
 
 class drawer1 extends StatefulWidget {
   final String email;
@@ -63,6 +62,14 @@ class _drawer1State extends State<drawer1> {
               onTap: () {
                 Navigator.of(context)
                     .push(MaterialPageRoute(builder: (context) => register()));
+              },
+            ),
+            ListTile(
+              title: Text("Student Login"),
+              trailing: Icon(Icons.details),
+              onTap: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => login1()));
               },
             ),
             ListTile(

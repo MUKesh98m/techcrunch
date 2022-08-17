@@ -1,8 +1,6 @@
 import 'dart:convert';
-
+import 'package:techcrunch/api/data_con.dart';
 import 'package:http/http.dart' as http;
-
-import 'data_con.dart';
 
 getadata() async {
   final response = await http.get(Uri.https(
@@ -23,13 +21,27 @@ getadata1() async {
   final response = await http
       .get(Uri.https('mj09store.000webhostapp.com', 'register_or_not/get.php'));
   var jsondata = jsonDecode(response.body);
-  List<insertdata> InsertDatas = [];
-  for (var apii in jsondata) {
-    insertdata InsertData = insertdata(
-        id: apii['id'], email: apii['email'], password: apii['password']);
-    InsertDatas.add(InsertData);
+  // print(jsondata);
+  List<insertdata> Data_cons = [];
+  for (var api in jsondata) {
+    insertdata Data_con = insertdata(
+        id: api['id'], email: api['email'], password: api['password']);
+    Data_cons.add(Data_con);
   }
-  return InsertDatas;
+  // print(Data_cons.length);
+  return Data_cons;
+}
+
+getapdf() async {
+  final response = await http.get(Uri.https(
+      'mj09store.000webhostapp.com', '/register_or_not/Photo_upload/get.php'));
+  var jsondata = jsonDecode(response.body);
   print(jsondata);
-  print(jsondata.length);
+  List<insertpdf> Data_cons = [];
+  for (var api in jsondata) {
+    insertpdf Data_con = insertpdf(id: api['id'], pdf: api['pdf']);
+    Data_cons.add(Data_con);
+  }
+  // print(Data_cons.length);
+  return Data_cons;
 }

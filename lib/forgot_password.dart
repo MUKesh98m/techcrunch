@@ -99,9 +99,12 @@ class _forgot_passwordState extends State<forgot_password> {
         // var res = jsonDecode(response.body);
         print(response.toString());
         if (response.statusCode == 200) {
-          print(response.statusCode);
-          print(json.decode(response.body));
-          print(response.body);
+          // print(response.statusCode);
+          var res = jsonDecode(response.body);
+
+          // print(json.decode(response.body));
+          // print(response.body);
+          print(res);
         } else {
           print(response.statusCode);
         }
